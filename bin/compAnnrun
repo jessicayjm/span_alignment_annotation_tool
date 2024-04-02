@@ -1,0 +1,13 @@
+#!/bin/bash
+# insta485db
+# Stop on errors
+# See https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -Eeuo pipefail
+set -x
+if [ ! -f var/compAnn.sqlite3 ]; then
+    ./bin/compAnndb create        
+fi
+npx webpack
+export FLASK_ENV=development
+export FLASK_APP=compAnn
+flask run --host 0.0.0.0 --port 8000
