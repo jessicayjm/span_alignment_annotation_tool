@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compAnn"
+version = "1.0.0"
+dependencies = [
+    "bs4",
+    "click",
+    "html5validator",
+    "jinja2",
+    "pycodestyle",
+    "pydocstyle",
+    "pylint",
+    "pytest",
+    "requests"
+]
+requires-python = ">=3.10"
+
+[project.scripts]
+compAnn = "compAnn.__main__:main"
+
+[tool.setuptools]
+packages = ["compAnn"]
+
+[tool.pylint.typecheck]
+signature-mutators = ["command", "option", "argument"]

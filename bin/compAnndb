@@ -21,7 +21,7 @@ case $1 in
     mkdir -p var/uploads
     sqlite3 var/compAnn.sqlite3 < sql/schema.sql
     sqlite3 var/compAnn.sqlite3 < sql/init.sql
-    cp sql/uploads/* var/uploads/
+    find sql/uploads/ -mindepth 1 -exec cp -n {} var/uploads/ \;
     ;;
   "destroy")
     rm -rf var/compAnn.sqlite3 var/uploads
