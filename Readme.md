@@ -1,6 +1,6 @@
 # Web tool for span and alignment annotation
 
-This is a website that provides annotation function for spans given one text and one-to-one alignment given two texts with spans. The tool was originally built for our paper: [Modeling Empathetic Alignment in Conversation](). But it can easily be modified to support other tasks that contain spans or alignments.
+This is a website that provides annotation function for spans given one text and one-to-one alignment given two texts with spans. The tool was originally built for our paper: [Modeling Empathetic Alignment in Conversation](). But it can easily be modified to support other tasks that need spans or alignments annotations.
 
 #### Features
 
@@ -12,7 +12,7 @@ This is a website that provides annotation function for spans given one text and
 + Support data upload and download.
 + Built-in calculation for inter-annotator agreement using [pygamma-agreement](https://pygamma-agreement.readthedocs.io/en/latest/).
 
-Here are some **demos** on the website: [Demos](https://drive.google.com/drive/folders/102F-dOkJDQw_OR0Z6WSbGO26-1ccXVNk?usp=drive_link)
+Here are some **demos** for the website: [Demos](https://drive.google.com/drive/folders/102F-dOkJDQw_OR0Z6WSbGO26-1ccXVNk?usp=drive_link)
 
 #### Installation
 
@@ -83,11 +83,11 @@ $ ./bin/compAnnrun
 
 #### Data upload and download
 
-All data files are `json` format.
+All data files are in `json` format.
 
 ##### Project upload format
 
-Here is a simple sample of the project upload format
+Here is a simple example of the project upload format:
 
 ```
 {
@@ -168,7 +168,7 @@ Create a `Dataframe` with the following fields:
 + `distress_score`: the distress score for target
 + `condolence_score`: the condolence score for observer
 + `empathy_score`: the empathy score for target-observer pair
-+ `full_text`: the text to annotation. (our project specific: the combination of `target` and `observer`)
++ `full_text`: the text to annotation. (our project specific: the combination of `target_text` and `observer_text`)
 
 *Note: if applying to other tasks for span annotation, `id`* and `full_text` are sufficient. All other fields can be left empty with only the column name present. 
 
@@ -190,6 +190,8 @@ Newly added fields compared to Upload texts:
 + `annotator?`: the column name should be the email of the annotator (the code will automatically match the email format). The values are the annotations belonged to this specific annotator.
 + `alignments`: alignments from all annotators.
 + `annotator?_align`: the column name should be the email of the annotator with `_align` followed. This is a fixed format used in the code.
+
+Convert it to `json` file with to get the desired data upload format.
 
 ##### Data download format
 
