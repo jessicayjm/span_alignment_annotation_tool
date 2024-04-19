@@ -19,6 +19,7 @@ case $1 in
         exit 1
     fi
     mkdir -p var/uploads
+    mkdir -p var/uploads/tmp
     sqlite3 var/compAnn.sqlite3 < sql/schema.sql
     sqlite3 var/compAnn.sqlite3 < sql/init.sql
     find sql/uploads/ -mindepth 1 -exec cp -n {} var/uploads/ \;
