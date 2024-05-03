@@ -1,6 +1,6 @@
 # Web tool for span and alignment annotation
 
-This is a website that provides annotation function for spans given one text and one-to-one alignment given two texts with spans. The tool was originally built for our paper: [Modeling Empathetic Alignment in Conversation](). But it can easily be modified to support other tasks that need spans or alignments annotations.
+This is a website that provides annotation function for spans given one text and one-to-one alignment given two texts with spans. The tool was originally built for our paper: [Modeling Empathetic Alignment in Conversation](https://arxiv.org/abs/2405.00948). But it can easily be modified to support other tasks that need spans or alignments annotations.
 
 #### Features
 
@@ -8,7 +8,7 @@ This is a website that provides annotation function for spans given one text and
 + Provide alignment of spans annotation.
 + Offer Note function where annotators can make private notes on specific segment of text or join shared discussion with other annotators.
 + Add Review function where annotators can have access to others' annotations.
-+ Easy job management for project admin and users.
++ Easy job management for project admins and users.
 + Support data upload and download.
 + Built-in calculation for inter-annotator agreement using [pygamma-agreement](https://pygamma-agreement.readthedocs.io/en/latest/).
 
@@ -165,9 +165,9 @@ Create a `Dataframe` with the following fields:
 + `subreddit` (our project specific): Subreddit name
 + `target_text`: target text
 + `observer_text`: observer text
-+ `distress_score`: the distress score for target
-+ `condolence_score`: the condolence score for observer
-+ `empathy_score`: the empathy score for target-observer pair
++ `distress_score`: the distress score for target (refer to the paper for getting the score)
++ `condolence_score`: the condolence score for observer (refer to the paper for getting the score)
++ `empathy_score`: the empathy score for target-observer pair (refer to the paper for getting the score)
 + `full_text`: the text to annotation. (our project specific: the combination of `target_text` and `observer_text`)
 
 *Note: if applying to other tasks for span annotation, `id`* and `full_text` are sufficient. All other fields can be left empty with only the column name present. 
@@ -184,7 +184,7 @@ Create a `Dataframe` with the following fields:
 | ---- | --------- | ----------- | --------- | --------- | ----------- | ------------- | -------------- | ---------------- | ------------- | --------- | ---------------------------------- | -------------------------- | -------------------------- | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
 | int  | string    | string      | string    | string    | string      | string        | float          | float            | float         | string    | [[email, start, end, label], ... ] | [[start, end, label], ...] | [[start, end, label], ...] |      | [[email, (target_start, target_end), (observer_start, observer_end)], ...] | [[(target_start, target_end), (observer_start, observer_end)], ...] | [[(target_start, target_end), (observer_start, observer_end)], ...] |      |
 
-Newly added fields compared to Upload texts:
+Newly added fields compared to *Upload texts*:
 
 + `annotations`: annotations from all annotators. `label` in the array should be one of the labels specified in *Project upload format*.
 + `annotator?`: the column name should be the email of the annotator (the code will automatically match the email format). The values are the annotations belonged to this specific annotator.
@@ -199,7 +199,7 @@ Same as *Project upload format* with ALL information included.
 
 #### Citation
 
-Cite our paper if you use this tool:
+Cite [our paper](https://arxiv.org/abs/2405.00948) if you use this tool.
 
 #### Contact
 
